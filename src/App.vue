@@ -21,6 +21,7 @@ export default {
 </script>
 
 <style>
+@import "./assets/globalVariables.css";
 html,
 body {
   height: 100%;

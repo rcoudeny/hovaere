@@ -65,13 +65,13 @@ export default {};
 </script>
 <style scoped>
 img {
-  -webkit-filter: grayscale(1) invert(1);
-  filter: grayscale(1) invert(1);
+  /* -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1); */
   width: 400px;
 }
 footer {
   padding: 20px;
-  border-top: 2px solid black;
+  background-color: var(--color-dark-redd);
   display: flex;
   justify-content: space-around;
   text-align: center;
@@ -80,6 +80,9 @@ footer > div {
   flex: 2;
   align-content: center;
 }
+footer h2 {
+  color: white;
+}
 ul {
   padding: 0;
 }
@@ -87,7 +90,8 @@ ul > li,
 ul > li > a {
   list-style-type: none;
   margin: 5px;
-  color: black;
+  color: white;
+  font-weight: 500;
   text-decoration: none;
   text-align: center;
 }

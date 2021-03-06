@@ -1,26 +1,30 @@
 <template>
   <nav>
-    <router-link to="/"><img src="../../assets/logo.png" alt="" /></router-link>
+    <div>
+      <router-link to="/"><img src="../../assets/logo.png" alt="" /></router-link>
 
-    <div class="navbar">
-      <div class="dropdown">
-        <span class="link" style="cursor: default"
-          >Aanbod <span style="font-size: 10px">▼</span></span
-        >
-        <div class="dropdown-content">
-          <span class="spacer"></span>
-          <div class="dropdown-links">
-            <router-link class="link" to="/ramen en deuren">Ramen en deuren</router-link>
-            <router-link class="link" to="/industriebouw">Industriebouw</router-link>
-            <router-link class="link" to="/vloeren en plinten"
-              >Vloeren en plinten</router-link
-            >
+      <div class="navbar">
+        <div class="dropdown">
+          <span class="link" style="cursor: default"
+            >Aanbod <span style="font-size: 10px">▼</span></span
+          >
+          <div class="dropdown-content">
+            <span class="spacer"></span>
+            <div class="dropdown-links">
+              <router-link class="link" to="/ramen en deuren"
+                >Ramen en deuren</router-link
+              >
+              <router-link class="link" to="/industriebouw">Industriebouw</router-link>
+              <router-link class="link" to="/vloeren en plinten"
+                >Vloeren en plinten</router-link
+              >
+            </div>
           </div>
         </div>
-      </div>
 
-      <router-link class="link" to="/over ons">Over ons</router-link>
-      <router-link class="link" to="/contact">Contact</router-link>
+        <router-link class="link" to="/over ons">Over ons</router-link>
+        <router-link class="link" to="/contact">Contact</router-link>
+      </div>
     </div>
   </nav>
 </template>
@@ -29,11 +33,15 @@ export default {};
 </script>
 <style scoped>
 nav {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--color-medium-red);
+  padding: 20px;
+}
+nav > div {
+  margin: auto;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
 }
 .dropdown {
   position: relative;
@@ -63,6 +71,9 @@ nav {
   font-size: 20px;
   cursor: pointer;
 }
+.link:hover {
+  color: var(--color-dark-redd);
+}
 .spacer {
   background-color: transparent;
   height: 20px;
@@ -74,7 +85,7 @@ nav {
 }
 
 .dropdown:hover .dropdown-links > .link:hover {
-  background-color: lightgray;
+  background-color: rgb(250, 250, 250);
 }
 
 .navbar > * {

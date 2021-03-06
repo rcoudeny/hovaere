@@ -71,63 +71,24 @@
     </section>
     <section id="projecten">
       <h3>Projecten</h3>
-      <div class="slider">
-        <img class="mySlides" src="../../assets/mockimg/foto1.jpg" />
-        <img class="mySlides" src="../../assets/mockimg/foto2.jpg" />
-        <img class="mySlides" src="../../assets/mockimg/foto3.jpg" />
-        <img class="mySlides" src="../../assets/mockimg/foto4.jpg" />
-        <img class="mySlides" src="../../assets/mockimg/foto5.jpg" />
-
-        <button class="button-left" v-on:click="plusDivs(-1)">&#10094;</button>
-        <button class="button-right" v-on:click="plusDivs(1)">&#10095;</button>
-      </div>
+      <Slider
+        v-bind:images="[
+          'mockimg/foto1.jpg',
+          'mockimg/foto2.jpg',
+          'mockimg/foto3.jpg',
+          'mockimg/foto4.jpg',
+          'mockimg/foto5.jpg',
+        ]"
+      ></Slider>
     </section>
   </div>
 </template>
 
 <script>
-var slideIndex = 1;
-
-var x = document.getElementsByClassName("mySlides");
-
+import Slider from "@/components/general/Slider";
 export default {
-  name: "Home",
-  props: {
-    msg: String,
-  },
-  mounted: function () {
-    this.showDivs(slideIndex);
-    carousel();
-    function carousel() {
-      var i;
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > x.length) {
-        slideIndex = 1;
-      }
-      x[slideIndex - 1].style.display = "block";
-      setTimeout(carousel, 5000);
-    }
-  },
-  methods: {
-    plusDivs: function (n) {
-      this.showDivs((slideIndex += n));
-    },
-    showDivs: function (n) {
-      var i;
-      if (n > x.length) {
-        slideIndex = 1;
-      }
-      if (n < 1) {
-        slideIndex = x.length;
-      }
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      x[slideIndex - 1].style.display = "block";
-    },
+  components: {
+    Slider,
   },
 };
 </script>
@@ -192,30 +153,6 @@ section#fotos img {
 }
 #projecten h3 {
   font-size: 2em;
-}
-
-#projecten .mySlides {
-  height: 300px;
-  margin: auto;
-  display: none;
-}
-#projecten > .slider {
-  position: relative;
-}
-#projecten .button-left,
-#projecten .button-right {
-  position: absolute;
-  height: 2em;
-  width: 2em;
-  transform: translate(0, -50%);
-}
-#projecten .button-left {
-  top: 50%;
-  left: 0;
-}
-#projecten .button-right {
-  top: 50%;
-  right: 0;
 }
 
 /* General */
