@@ -7,6 +7,7 @@ import VloerenEnPlinten from '@/components/pages/aanbod/VloerenEnPlinten';
 import Contact from "@/components/pages/Contact";
 import Renovatie from "@/components/pages/Renovatie";
 import OverOns from "@/components/pages/OverOns";
+import Referenties from "@/components/pages/Referenties";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -17,9 +18,15 @@ const routes = [
   { path: "/ramen en deuren", name: "Ramen en deuren", component: RamenEnDeuren },
   { path: "/industriebouw", name: "Industriebouw", component: Industriebouw },
   { path: "/vloeren en plinten", name: "Vloeren en plinten", component: VloerenEnPlinten },
+  { path: "/referenties", name: "Referenties", component: Referenties },
   { path: "/:catchAll(.*)", redirect: "/" },
 ];
 
-const router = createRouter({ history: createWebHistory(), routes });
+const router = createRouter({
+  history: createWebHistory(), scrollBehavior() {
+    document.getElementById('app').scrollIntoView();
+    return null;
+  }, routes
+});
 
 createApp(App).use(router).mount("#app");
